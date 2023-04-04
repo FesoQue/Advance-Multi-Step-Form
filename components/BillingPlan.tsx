@@ -5,7 +5,7 @@ import { Switch } from "./ui/switch";
 import { Label } from "./ui/label";
 
 const toggleGroupItemClasses =
-  "hover:bg-alabaster data-[state=on]:bg-magnolia data-[state=on]:shadow-[0_0_0_1px] shadow-[0_0_0_1px] shadow-light-gray rounded-lg data-[state=on]:shadow-marine-blue flex p-4 w-full  items-center bg-white leading-4 mb-3 focus:z-10 focus:shadow-[0_0_0_1px] focus:shadow-marine-blue focus:outline-none";
+  "hover:bg-alabaster data-[state=on]:bg-magnolia data-[state=on]:shadow-[0_0_0_1px] shadow-[0_0_0_1px] shadow-light-gray rounded-lg data-[state=on]:shadow-marine-blue flex p-4 w-full  items-center bg-white leading-4 mb-3 focus:z-10 focus:outline-none";
 
 const BillingPlan = () => {
   const [isYearlyPlan, setIsYearlyPlan] = useState(false);
