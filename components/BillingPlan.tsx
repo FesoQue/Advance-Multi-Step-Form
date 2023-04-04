@@ -1,14 +1,11 @@
 import React from "react";
 import * as ToggleGroup from "@radix-ui/react-toggle-group";
-import {
-  TextAlignLeftIcon,
-  TextAlignCenterIcon,
-  TextAlignRightIcon,
-} from "@radix-ui/react-icons";
 import Image from "next/image";
+import { Switch } from "./ui/switch";
+import { Label } from "./ui/label";
 
 const toggleGroupItemClasses =
-  "hover:bg-alabaster data-[state=on]:bg-magnolia data-[state=on]:shadow-[0_0_0_1px] shadow-[0_0_0_1px] shadow-light-gray rounded data-[state=on]:shadow-marine-blue flex p-4 w-full  items-center bg-white leading-4 mb-3 focus:z-10 focus:shadow-[0_0_0_1px] focus:shadow-marine-blue focus:outline-none";
+  "hover:bg-alabaster data-[state=on]:bg-magnolia data-[state=on]:shadow-[0_0_0_1px] shadow-[0_0_0_1px] shadow-light-gray rounded-lg data-[state=on]:shadow-marine-blue flex p-4 w-full  items-center bg-white leading-4 mb-3 focus:z-10 focus:shadow-[0_0_0_1px] focus:shadow-marine-blue focus:outline-none";
 
 const BillingPlan = () => {
   return (
@@ -81,6 +78,12 @@ const BillingPlan = () => {
           </div>
         </ToggleGroup.Item>
       </ToggleGroup.Root>
+
+      <div className="mt-8 flex items-center justify-center gap-10 rounded-lg bg-magnolia py-4">
+        <Label htmlFor="subscription">Monthly</Label>
+        <Switch id="subscription" checked={false} />
+        <Label htmlFor="subscription">Yearly</Label>
+      </div>
     </div>
   );
 };
