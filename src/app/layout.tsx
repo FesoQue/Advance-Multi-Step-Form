@@ -45,7 +45,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head />
-      <body className={`${ubuntu.variable}`}>{children}</body>
+      <body className={`${ubuntu.variable}  font-sans`}>{children}</body>
     </html>
   );
 }
