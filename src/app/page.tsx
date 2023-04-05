@@ -2,9 +2,8 @@
 
 import Nav from "../../components/Nav";
 import PersonalInfo from "../../components/PersonalInfo";
-import PricingPlan from "../../components/PricingPlan";
-import Addons from "../../components/Addons";
 import BillingPlan from "../../components/BillingPlan";
+import Addons from "../../components/Addons";
 
 export default function Home() {
   return (
@@ -13,9 +12,8 @@ export default function Home() {
       <div className="-mt-[86px] px-4 pb-10">
         <section className="rounded-xl bg-white px-6 pb-8 pt-10">
           {/* <PersonalInfo /> */}
-          <BillingPlan />
-          {/* <PricingPlan /> */}
-          {/* <Addons /> */}
+          {/* <BillingPlan /> */}
+          <Addons />
         </section>
         <div className="mt-10 flex items-center justify-between">
           <button className="font-semibold text-cool-gray">Go Back</button>
