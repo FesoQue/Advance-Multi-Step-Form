@@ -16,24 +16,44 @@ export default function Home() {
     isFirstStep,
     isSuccess,
     currentStepIndex,
-  } = useMultistepForm(5);
+    previousStep,
+  } = useMultistepForm(4);
 
   return (
     <main className="min-h-screen bg-magnolia">
-      <Nav />
+      <Nav currentStepIndex={currentStepIndex} gotoForm={gotoForm} />
       <div className="-mt-[86px] px-4 pb-10">
         <section className="rounded-xl bg-white px-6 pb-8 pt-10">
-          {/* <PersonalInfo /> */}
-          {/* <BillingPlan /> */}
-          {/* <Addons /> */}
-          {/* <Finish /> */}
-          <Success />
+          {isSuccess ? (
+            <Success />
+          ) : (
+            <>
+              {currentStepIndex === 0 && <PersonalInfo />}
+              {currentStepIndex === 1 && <BillingPlan />}
+              {currentStepIndex === 2 && <Addons />}
+              {currentStepIndex === 3 && <Finish />}
+            </>
+          )}
         </section>
         <div className="mt-10 flex items-center justify-between">
-          <button className="font-semibold text-cool-gray">Go Back</button>
-          <button className="grid h-[45px] min-w-[110px] place-items-center rounded bg-marine-blue font-semibold text-white">
-            Next Step
-          </button>
+          {isSuccess ? (
+            ""
+          ) : (
+            <>
+              <button
+                className="font-semibold text-cool-gray"
+                onClick={previousStep}
+              >
+                {isFirstStep ? "" : "Go Back"}
+              </button>
+              <button
+                className="grid h-[45px] min-w-[110px] place-items-center rounded bg-marine-blue font-semibold text-white"
+                onClick={nextStep}
+              >
+                {isLastStep ? "Confirm" : "Next Step"}
+              </button>
+            </>
+          )}
         </div>
       </div>
     </main>

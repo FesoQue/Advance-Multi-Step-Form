@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import * as ToggleGroup from "@radix-ui/react-toggle-group";
 import Image from "next/image";
 import { Switch } from "./ui/switch";
@@ -13,6 +13,10 @@ const BillingPlan = () => {
   const handleCheckedChange = () => {
     setIsYearlyPlan((prev) => !prev);
   };
+
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, []);
 
   return (
     <div>

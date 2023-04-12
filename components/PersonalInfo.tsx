@@ -1,6 +1,11 @@
 "use client";
 
+import { useEffect } from "react";
+
 const PersonalInfo = () => {
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, []);
   return (
     <div>
       <h1 className="mb-2 text-[26px] font-bold text-marine-blue ">

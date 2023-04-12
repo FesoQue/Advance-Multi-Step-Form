@@ -1,14 +1,16 @@
 "use client";
+import { FC, ReactElement } from "react";
 import { useMultistepForm } from "../hooks/useMultistepForm";
 
-const Nav = () => {
-  const { isLastStep, gotoForm, currentStepIndex } = useMultistepForm(5);
-  console.log(currentStepIndex);
+type NavTypes = {
+  currentStepIndex: number;
+  gotoForm: (index: number) => void;
+};
 
+const Nav = ({ currentStepIndex, gotoForm }: NavTypes) => {
   return (
     <header className="min-h-[200px] bg-bg-mobile bg-cover bg-center">
       <div className="flex justify-center space-x-6 pt-10">
-        {/* <div> */}
         {[1, 2, 3, 4].map((btn, i) => {
           let position;
           if (i === currentStepIndex) {
@@ -25,7 +27,6 @@ const Nav = () => {
             </button>
           );
         })}
-        {/* </div> */}
       </div>
     </header>
   );

@@ -6,3 +6,7 @@ export type SiteConfig = {
     github: string;
   };
 };
+
+export type MultistepProp = {
+  currentStepIndex: number;
+};

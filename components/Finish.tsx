@@ -1,4 +1,6 @@
+"use client";
 import React from "react";
+import { MultistepProp } from "../types";
 
 const Finish = () => {
   return (
