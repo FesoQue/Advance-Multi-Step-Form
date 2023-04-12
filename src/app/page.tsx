@@ -4,6 +4,7 @@ import Nav from "../../components/Nav";
 import PersonalInfo from "../../components/PersonalInfo";
 import BillingPlan from "../../components/BillingPlan";
 import Addons from "../../components/Addons";
+import Finish from "../../components/Finish";
 
 export default function Home() {
   return (
@@ -13,7 +14,8 @@ export default function Home() {
         <section className="rounded-xl bg-white px-6 pb-8 pt-10">
           {/* <PersonalInfo /> */}
           {/* <BillingPlan /> */}
-          <Addons />
+          {/* <Addons /> */}
+          <Finish />
         </section>
         <div className="mt-10 flex items-center justify-between">
           <button className="font-semibold text-cool-gray">Go Back</button>

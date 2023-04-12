@@ -37,13 +37,13 @@ const Addons = () => {
               className="block text-base font-medium leading-[.8] text-marine-blue"
             >
               Online service
+              <span className="mt-2 block text-[12px] text-cool-gray">
+                Access to multiplayer games
+              </span>
             </Label>
-            <span className="text-[12px] text-cool-gray">
-              Access to multiplayer games
-            </span>
           </div>
         </div>
-        <span className="text-sm font-medium text-purplish-blue">+$1/mo</span>
+        <span className="text-sm font-medium text-purplish-blue">+$10/mo</span>
       </div>
       <div className="mb-3 flex items-center justify-between rounded-lg border-2 border-light-gray px-3 py-4">
         <div className="flex items-center">
@@ -54,13 +54,13 @@ const Addons = () => {
               className="block text-base font-medium leading-[.8] text-marine-blue"
             >
               Larger Storage
+              <span className="mt-2 block text-[12px] text-cool-gray">
+                Extra 1TB of cloud save
+              </span>
             </Label>
-            <span className="text-[12px] text-cool-gray">
-              Extra 1TB of cloud save
-            </span>
           </div>
         </div>
-        <span className="text-sm font-medium text-purplish-blue">+$2/mo</span>
+        <span className="text-sm font-medium text-purplish-blue">+$20/mo</span>
       </div>
       <div className="mb-3 flex items-center justify-between rounded-lg border-2 border-light-gray px-3 py-4">
         <div className="flex items-center">
@@ -71,13 +71,13 @@ const Addons = () => {
               className="block text-base font-medium leading-[.8] text-marine-blue"
             >
               Customizable profile
+              <span className="mt-2 block text-[12px] leading-3 text-cool-gray">
+                Custom theme on your profile
+              </span>
             </Label>
-            <span className="text-[12px] text-cool-gray">
-              Custom theme on your profile
-            </span>
           </div>
         </div>
-        <span className="text-sm font-medium text-purplish-blue">+$3/mo</span>
+        <span className="text-sm font-medium text-purplish-blue">+$30/mo</span>
       </div>
     </div>
   );
