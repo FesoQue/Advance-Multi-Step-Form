@@ -2,7 +2,10 @@
 import React from "react";
 import { MultistepProp } from "../types";
 
-const Finish = () => {
+type PlanProps = {
+  gotoForm: (index: number) => void;
+};
+const Finish = ({ gotoForm }: PlanProps) => {
   return (
     <div>
       {" "}
@@ -16,7 +19,12 @@ const Finish = () => {
         <div className="border-b-1 mb-3 flex items-center justify-between border-b border-light-gray pb-3">
           <div>
             <p className="font-semibold text-marine-blue">Arcade (Monthly)</p>
-            <button className="text-cool-gray underline">change</button>
+            <button
+              className="text-cool-gray underline"
+              onClick={() => gotoForm(1)}
+            >
+              change
+            </button>
           </div>
           <span className="font-semibold text-marine-blue">$9/mo</span>
         </div>

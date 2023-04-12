@@ -14,7 +14,7 @@ const PersonalInfo = () => {
       <p className="mb-6 text-lg text-cool-gray">
         Please provide your name, email, address, phone number.
       </p>
-      <form className="">
+      <div className="">
         <div className="mb-4">
           <label htmlFor="name" className=" block font-medium text-marine-blue">
             Name
@@ -57,7 +57,7 @@ const PersonalInfo = () => {
             className="h-[45px] w-full rounded border-2 border-light-gray px-3 outline-none placeholder:font-medium"
           />
         </div>
-      </form>
+      </div>
     </div>
   );
 };

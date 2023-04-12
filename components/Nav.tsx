@@ -9,7 +9,7 @@ type NavTypes = {
 
 const Nav = ({ currentStepIndex, gotoForm }: NavTypes) => {
   return (
-    <header className="min-h-[200px] bg-bg-mobile bg-cover bg-center">
+    <header className="h-[200px] bg-bg-mobile bg-cover bg-center md:h-auto md:bg-bg-desktop">
       <div className="flex justify-center space-x-6 pt-10">
         {[1, 2, 3, 4].map((btn, i) => {
           let position;
