@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 export const useMultistepForm = (step: number) => {
-  const [currentStepIndex, setCurrentStepIndex] = useState<number>(0);
+  const [currentStepIndex, setCurrentStepIndex] = useState<number>(1);
   const [isSuccess, setIsSuccess] = useState<boolean>(false);
 
   const nextStep = () => {
@@ -27,6 +27,7 @@ export const useMultistepForm = (step: number) => {
   const isLastStep = currentStepIndex === step - 1;
 
   return {
+    currentStepIndex,
     nextStep,
     previousStep,
     gotoForm,

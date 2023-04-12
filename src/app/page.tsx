@@ -6,8 +6,18 @@ import BillingPlan from "../../components/BillingPlan";
 import Addons from "../../components/Addons";
 import Finish from "../../components/Finish";
 import Success from "../../components/Success";
+import { useMultistepForm } from "../../hooks/useMultistepForm";
 
 export default function Home() {
+  const {
+    nextStep,
+    isLastStep,
+    gotoForm,
+    isFirstStep,
+    isSuccess,
+    currentStepIndex,
+  } = useMultistepForm(5);
+
   return (
     <main className="min-h-screen bg-magnolia">
       <Nav />

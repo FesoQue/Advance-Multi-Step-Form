@@ -35,3 +35,8 @@ body {
   overflow-x: hidden;
   -webkit-tap-highlight-color: transparent;
 }
+.active {
+  background: hsl(206, 94%, 87%);
+  color: hsl(213, 96%, 18%);
+  font-weight: 600;
+}
