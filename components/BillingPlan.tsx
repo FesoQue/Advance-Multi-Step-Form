@@ -5,7 +5,7 @@ import { Switch } from "./ui/switch";
 import { Label } from "./ui/label";
 
 const toggleGroupItemClasses =
-  "hover:bg-alabaster data-[state=on]:bg-magnolia data-[state=on]:shadow-[0_0_0_1px] shadow-[0_0_0_1px] shadow-light-gray rounded-lg data-[state=on]:shadow-marine-blue flex p-4 w-full  items-center bg-white leading-4 mb-3 focus:z-10 focus:outline-none";
+  "hover:bg-alabaster data-[state=on]:bg-magnolia data-[state=on]:shadow-[0_0_0_1px] shadow-[0_0_0_1px] shadow-light-gray rounded-lg data-[state=on]:shadow-marine-blue flex p-4 w-full  items-center bg-white leading-4 mb-3 focus:z-10 focus:outline-none md:flex-col md:items-start md:gap-[20px]";
 
 const BillingPlan = () => {
   const [isYearlyPlan, setIsYearlyPlan] = useState(false);
@@ -28,7 +28,7 @@ const BillingPlan = () => {
       </p>
 
       <ToggleGroup.Root
-        className="w-full"
+        className="w-full md:grid md:grid-cols-3 md:gap-4"
         type="single"
         aria-label="Billing Plan"
         orientation="horizontal"
@@ -44,13 +44,14 @@ const BillingPlan = () => {
             alt="arcade"
             width={40}
             height={40}
-            className="mr-5"
+            className="mr-5 md:mr-0"
           />
           <div className="text-left">
             <p className="mb-1 text-lg font-medium text-marine-blue">Arcade</p>
             <span className="text-cool-gray">$9/mo</span>
           </div>
         </ToggleGroup.Item>
+
         <ToggleGroup.Item
           className={toggleGroupItemClasses}
           value="advanced"
@@ -61,7 +62,7 @@ const BillingPlan = () => {
             alt="arcade"
             width={40}
             height={40}
-            className="mr-5"
+            className="md:mr=0 mr-5"
           />
           <div className="text-left">
             <p className="mb-1 text-lg font-medium text-marine-blue">
@@ -80,7 +81,7 @@ const BillingPlan = () => {
             alt="arcade"
             width={40}
             height={40}
-            className="mr-5"
+            className="mr-5 md:mr-0"
           />
           <div className="text-left">
             <p className="mb-1 text-lg font-medium text-marine-blue">Pro</p>
