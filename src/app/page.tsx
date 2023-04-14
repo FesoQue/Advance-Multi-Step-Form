@@ -7,6 +7,7 @@ import Addons from "../../components/Addons";
 import Finish from "../../components/Finish";
 import Success from "../../components/Success";
 import { useMultistepForm } from "../../hooks/useMultistepForm";
+import { AnimatePresence } from "framer-motion";
 
 export default function Home() {
   const {
@@ -33,15 +34,19 @@ export default function Home() {
         <div className="-mt-[85px] px-4 pb-10 md:-mt-[0px] md:pb-0">
           <section className="rounded-xl bg-white px-6 py-8 md:h-[500px] md:px-6 lg:min-w-[600px] lg:px-14">
             {isSuccess ? (
-              <Success gotoForm={gotoForm} />
+              <AnimatePresence mode="wait">
+                <Success gotoForm={gotoForm} />
+              </AnimatePresence>
             ) : (
               <form onSubmit={handleFormData}>
-                <div>
-                  {currentStepIndex === 0 && <PersonalInfo />}
-                  {currentStepIndex === 1 && <BillingPlan />}
-                  {currentStepIndex === 2 && <Addons />}
-                  {currentStepIndex === 3 && <Finish gotoForm={gotoForm} />}
-                </div>
+                <AnimatePresence mode="wait">
+                  {currentStepIndex === 0 && <PersonalInfo key={"step1"} />}
+                  {currentStepIndex === 1 && <BillingPlan key={"step2"} />}
+                  {currentStepIndex === 2 && <Addons key={"step3"} />}
+                  {currentStepIndex === 3 && (
+                    <Finish gotoForm={gotoForm} key={"step4"} />
+                  )}
+                </AnimatePresence>
                 <div className="mt-10 flex items-center justify-between">
                   {isSuccess ? (
                     ""

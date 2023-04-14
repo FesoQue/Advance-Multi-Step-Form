@@ -2,6 +2,8 @@
 import { useEffect, useState } from "react";
 import { Label } from "./ui/label";
 import { Checkbox } from "./ui/checkbox";
+import { formVariants } from "../lib/animation-variant";
+import { motion } from "framer-motion";
 
 const Addons = () => {
   const [checked, setChecked] = useState(false);
@@ -15,7 +17,12 @@ const Addons = () => {
   }, []);
 
   return (
-    <div>
+    <motion.div
+      variants={formVariants}
+      initial="hidden"
+      animate="visible"
+      exit="exit"
+    >
       <h1 className="mb-2 text-[26px] font-bold text-marine-blue ">
         Pick add-ons
       </h1>
@@ -79,7 +86,7 @@ const Addons = () => {
         </div>
         <span className="text-sm font-medium text-purplish-blue">+$30/mo</span>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

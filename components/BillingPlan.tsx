@@ -3,6 +3,8 @@ import * as ToggleGroup from "@radix-ui/react-toggle-group";
 import Image from "next/image";
 import { Switch } from "./ui/switch";
 import { Label } from "./ui/label";
+import { formVariants } from "../lib/animation-variant";
+import { motion } from "framer-motion";
 
 const toggleGroupItemClasses =
   "hover:bg-alabaster data-[state=on]:bg-magnolia data-[state=on]:shadow-[0_0_0_1px] shadow-[0_0_0_1px] shadow-light-gray rounded-lg data-[state=on]:shadow-marine-blue flex p-4 w-full  items-center bg-white leading-4 mb-3 focus:z-10 focus:outline-none md:flex-col md:items-start md:gap-[20px]";
@@ -19,7 +21,12 @@ const BillingPlan = () => {
   }, []);
 
   return (
-    <div>
+    <motion.div
+      variants={formVariants}
+      initial="hidden"
+      animate="visible"
+      exit="exit"
+    >
       <h1 className="mb-2 text-[26px] font-bold text-marine-blue ">
         Select your plan
       </h1>
@@ -103,7 +110,7 @@ const BillingPlan = () => {
           Yearly
         </Label>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

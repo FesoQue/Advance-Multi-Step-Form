@@ -1,13 +1,20 @@
 "use client";
 
 import { useEffect } from "react";
+import { formVariants } from "../lib/animation-variant";
+import { motion } from "framer-motion";
 
 const PersonalInfo = () => {
   useEffect(() => {
     window.scroll(0, 0);
   }, []);
   return (
-    <div>
+    <motion.div
+      variants={formVariants}
+      initial="hidden"
+      animate="visible"
+      exit="exit"
+    >
       <h1 className="mb-2 text-[26px] font-bold text-marine-blue ">
         Personal Info
       </h1>
@@ -58,7 +65,7 @@ const PersonalInfo = () => {
           />
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

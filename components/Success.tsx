@@ -2,10 +2,17 @@
 import React from "react";
 import Image from "next/image";
 import { GotoProp } from "../types";
+import { successVariants } from "../lib/animation-variant";
+import { motion } from "framer-motion";
 
-const Success = ({gotoForm}: GotoProp) => {
+const Success = ({ gotoForm }: GotoProp) => {
   return (
-    <section className="flex flex-col items-center text-center md:mx-auto md:h-full md:max-w-[450px] md:justify-center">
+    <motion.section
+      variants={successVariants}
+      initial="hidden"
+      animate="visible"
+      className="flex flex-col items-center text-center md:mx-auto md:h-full md:max-w-[450px] md:justify-center"
+    >
       <Image
         src={"/assets/images/icon-thank-you.svg"}
         alt="success"
@@ -21,7 +28,10 @@ const Success = ({gotoForm}: GotoProp) => {
         platform, if you need support, please feel free to email at us{" "}
         <span>support@loremgaming.com</span>
       </p>
-      <button className="border-1 flex items-center rounded border border-purplish-blue px-3 py-2 font-medium text-purplish-blue" onClick={() => gotoForm(0)}>
+      <button
+        className="border-1 flex items-center rounded border border-purplish-blue px-3 py-2 font-medium text-purplish-blue"
+        onClick={() => gotoForm(0)}
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -38,7 +48,7 @@ const Success = ({gotoForm}: GotoProp) => {
         </svg>
         <span>Restart</span>
       </button>
-    </section>
+    </motion.section>
   );
 };
 

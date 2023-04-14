@@ -1,10 +1,17 @@
 "use client";
 import React from "react";
 import { GotoProp } from "../types";
+import { formVariants } from "../lib/animation-variant";
+import { motion } from "framer-motion";
 
 const Finish = ({ gotoForm }: GotoProp) => {
   return (
-    <div>
+    <motion.div
+      variants={formVariants}
+      initial="hidden"
+      animate="visible"
+      exit="exit"
+    >
       {" "}
       <h1 className="mb-2 text-[26px] font-bold text-marine-blue ">
         Finishing Up
@@ -41,7 +48,7 @@ const Finish = ({ gotoForm }: GotoProp) => {
         <p className="capitalize text-cool-gray">Total (per month) </p>
         <span className="font-medium text-purplish-blue">$12/mo</span>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
