@@ -1,6 +1,4 @@
 "use client";
-import { FC, ReactElement } from "react";
-import { useMultistepForm } from "../hooks/useMultistepForm";
 
 type NavTypes = {
   currentStepIndex: number;

@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const Success = () => {
   return (
-    <section className="flex flex-col items-center text-center">
+    <section className="flex flex-col items-center text-center md:mx-auto md:h-full md:max-w-[450px] md:justify-center">
       <Image
         src={"/assets/images/icon-thank-you.svg"}
         alt="success"
