@@ -18,6 +18,7 @@ export default function Home() {
     isSuccess,
     currentStepIndex,
     previousStep,
+    status,
   } = useMultistepForm(4);
 
   const handleFormData = (e: React.FormEvent<HTMLFormElement>): void => {
@@ -32,7 +33,7 @@ export default function Home() {
       >
         <Sidebar currentStepIndex={currentStepIndex} gotoForm={gotoForm} />
         <div className="-mt-[85px] px-4 pb-10 md:-mt-[0px] md:pb-0">
-          <section className="overflow-hidden rounded-xl bg-white px-6 py-8 md:h-[500px] md:px-6 lg:min-w-[600px] lg:px-14">
+          <section className="overflow-hidden rounded-xl bg-white px-6 py-8 md:h-[500px] md:px-6 lg:w-[550px] lg:px-14">
             {isSuccess ? (
               <AnimatePresence mode="wait">
                 <Success gotoForm={gotoForm} />
@@ -40,7 +41,9 @@ export default function Home() {
             ) : (
               <form onSubmit={handleFormData}>
                 <AnimatePresence mode="wait">
-                  {currentStepIndex === 0 && <PersonalInfo key={"step1"} />}
+                  {currentStepIndex === 0 && (
+                    <PersonalInfo key={"step1"} status={status} />
+                  )}
                   {currentStepIndex === 1 && <BillingPlan key={"step2"} />}
                   {currentStepIndex === 2 && <Addons key={"step3"} />}
                   {currentStepIndex === 3 && (

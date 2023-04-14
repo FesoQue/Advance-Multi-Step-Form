@@ -4,16 +4,25 @@ import { useEffect } from "react";
 import { formVariants } from "../lib/animation-variant";
 import { motion } from "framer-motion";
 
-const PersonalInfo = () => {
+const PersonalInfo = ({ status }: { status: string }) => {
   useEffect(() => {
     window.scroll(0, 0);
   }, []);
   return (
     <motion.div
       variants={formVariants}
-      initial="hidden"
+      initial={{
+        opacity: 0,
+        x: status === "ascending" ? -50 : 50,
+      }}
       animate="visible"
-      exit="exit"
+      exit={{
+        opacity: 0,
+        x: status === "ascending" ? 50 : -50,
+        transition: {
+          ease: "easeOut",
+        },
+      }}
     >
       <h1 className="mb-2 text-[26px] font-bold text-marine-blue ">
         Personal Info

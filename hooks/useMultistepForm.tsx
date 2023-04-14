@@ -3,10 +3,12 @@ import React, { useState } from "react";
 export const useMultistepForm = (step: number) => {
   const [currentStepIndex, setCurrentStepIndex] = useState<number>(0);
   const [isSuccess, setIsSuccess] = useState<boolean>(false);
+  const [status, setStatus] = useState("");
 
   const nextStep = () => {
     if (currentStepIndex < step - 1) {
       setCurrentStepIndex((i) => i + 1);
+      setStatus("ascending");
     }
     if (currentStepIndex === 3) {
       setIsSuccess(true);
@@ -16,6 +18,7 @@ export const useMultistepForm = (step: number) => {
   const previousStep = () => {
     if (currentStepIndex > 0) {
       setCurrentStepIndex((i) => i - 1);
+      setStatus("descending");
     }
   };
 
@@ -35,5 +38,6 @@ export const useMultistepForm = (step: number) => {
     isFirstStep,
     isLastStep,
     isSuccess,
+    status,
   };
 };
