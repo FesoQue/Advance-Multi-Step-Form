@@ -32,7 +32,7 @@ export default function Home() {
       >
         <Sidebar currentStepIndex={currentStepIndex} gotoForm={gotoForm} />
         <div className="-mt-[85px] px-4 pb-10 md:-mt-[0px] md:pb-0">
-          <section className="rounded-xl bg-white px-6 py-8 md:h-[500px] md:px-6 lg:min-w-[600px] lg:px-14">
+          <section className="overflow-hidden rounded-xl bg-white px-6 py-8 md:h-[500px] md:px-6 lg:min-w-[600px] lg:px-14">
             {isSuccess ? (
               <AnimatePresence mode="wait">
                 <Success gotoForm={gotoForm} />
