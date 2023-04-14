@@ -10,3 +10,7 @@ export type SiteConfig = {
 export type MultistepProp = {
   currentStepIndex: number;
 };
+
+export type GotoProp = {
+  gotoForm: (index: number) => void;
+};

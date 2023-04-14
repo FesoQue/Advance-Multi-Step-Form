@@ -5,7 +5,7 @@ type NavTypes = {
   gotoForm: (index: number) => void;
 };
 
-const Nav = ({ currentStepIndex, gotoForm }: NavTypes) => {
+const Sidebar = ({ currentStepIndex, gotoForm }: NavTypes) => {
   return (
     <header className="h-[200px] bg-bg-mobile bg-cover bg-center md:h-auto md:rounded-xl md:bg-bg-desktop md:px-8 ">
       <div className="flex h-full w-full justify-center space-x-6 pt-10 md:w-[220px] md:flex-col md:justify-start md:space-x-0 md:space-y-8">
@@ -39,4 +39,4 @@ const Nav = ({ currentStepIndex, gotoForm }: NavTypes) => {
   );
 };
 
-export default Nav;
+export default Sidebar;

@@ -1,11 +1,8 @@
 "use client";
 import React from "react";
-import { MultistepProp } from "../types";
+import { GotoProp } from "../types";
 
-type PlanProps = {
-  gotoForm: (index: number) => void;
-};
-const Finish = ({ gotoForm }: PlanProps) => {
+const Finish = ({ gotoForm }: GotoProp) => {
   return (
     <div>
       {" "}
