@@ -1,28 +1,23 @@
 "use client";
 
 import { useEffect } from "react";
-import { formVariants } from "../lib/animation-variant";
 import { motion } from "framer-motion";
+import useVariants from "../hooks/useVariants";
 
 const PersonalInfo = ({ status }: { status: string }) => {
+  const { variants } = useVariants({ status });
+
   useEffect(() => {
     window.scroll(0, 0);
   }, []);
+
   return (
     <motion.div
-      variants={formVariants}
-      initial={{
-        opacity: 0,
-        x: status === "ascending" ? -50 : 50,
-      }}
+      variants={variants}
+      custom={status}
+      initial="hidden"
       animate="visible"
-      exit={{
-        opacity: 0,
-        x: status === "ascending" ? 50 : -50,
-        transition: {
-          ease: "easeOut",
-        },
-      }}
+      exit="exit"
     >
       <h1 className="mb-2 text-[26px] font-bold text-marine-blue ">
         Personal Info

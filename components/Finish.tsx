@@ -1,13 +1,15 @@
 "use client";
 import React from "react";
 import { GotoProp } from "../types";
-import { formVariants } from "../lib/animation-variant";
 import { motion } from "framer-motion";
+import useVariants from "../hooks/useVariants";
 
 const Finish = ({ gotoForm }: GotoProp) => {
+  const { variants } = useVariants({ status });
+
   return (
     <motion.div
-      variants={formVariants}
+      variants={variants}
       initial="hidden"
       animate="visible"
       exit="exit"

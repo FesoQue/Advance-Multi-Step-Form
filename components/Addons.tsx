@@ -2,11 +2,12 @@
 import { useEffect, useState } from "react";
 import { Label } from "./ui/label";
 import { Checkbox } from "./ui/checkbox";
-import { formVariants } from "../lib/animation-variant";
 import { motion } from "framer-motion";
+import useVariants from "../hooks/useVariants";
 
-const Addons = () => {
+const Addons = ({ status }: { status: string }) => {
   const [checked, setChecked] = useState(false);
+  const { variants } = useVariants({ status });
 
   const handleCheckChange = () => {
     setChecked((prev) => !prev);
@@ -18,7 +19,7 @@ const Addons = () => {
 
   return (
     <motion.div
-      variants={formVariants}
+      variants={variants}
       initial="hidden"
       animate="visible"
       exit="exit"

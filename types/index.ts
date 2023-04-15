@@ -12,5 +12,6 @@ export type MultistepProp = {
 };
 
 export type GotoProp = {
+  status?: string;
   gotoForm: (index: number) => void;
 };

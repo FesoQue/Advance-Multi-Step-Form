@@ -25,6 +25,7 @@ export const useMultistepForm = (step: number) => {
   const gotoForm = (index: number) => {
     setCurrentStepIndex(index);
     setIsSuccess(false);
+    setStatus("descending");
   };
 
   const isFirstStep = currentStepIndex === 0;

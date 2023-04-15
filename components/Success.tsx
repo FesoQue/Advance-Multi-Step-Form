@@ -2,10 +2,24 @@
 import React from "react";
 import Image from "next/image";
 import { GotoProp } from "../types";
-import { successVariants } from "../lib/animation-variant";
 import { motion } from "framer-motion";
 
 const Success = ({ gotoForm }: GotoProp) => {
+  const successVariants = {
+    hidden: {
+      opacity: 0,
+      y: 50,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        ease: "backIn",
+        duration: 0.6,
+      },
+    },
+  };
+
   return (
     <motion.section
       variants={successVariants}

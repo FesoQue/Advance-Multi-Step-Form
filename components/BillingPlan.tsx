@@ -5,12 +5,14 @@ import { Switch } from "./ui/switch";
 import { Label } from "./ui/label";
 import { formVariants } from "../lib/animation-variant";
 import { motion } from "framer-motion";
+import useVariants from "../hooks/useVariants";
 
 const toggleGroupItemClasses =
   "hover:bg-alabaster data-[state=on]:bg-magnolia data-[state=on]:shadow-[0_0_0_1px] shadow-[0_0_0_1px] shadow-light-gray rounded-lg data-[state=on]:shadow-marine-blue flex p-4 w-full  items-center bg-white leading-4 mb-3 focus:z-10 focus:outline-none md:flex-col md:items-start md:gap-[20px]";
 
-const BillingPlan = () => {
+const BillingPlan = ({ status }: { status: string }) => {
   const [isYearlyPlan, setIsYearlyPlan] = useState(false);
+  const { variants } = useVariants({ status });
 
   const handleCheckedChange = () => {
     setIsYearlyPlan((prev) => !prev);
@@ -22,7 +24,7 @@ const BillingPlan = () => {
 
   return (
     <motion.div
-      variants={formVariants}
+      variants={variants}
       initial="hidden"
       animate="visible"
       exit="exit"

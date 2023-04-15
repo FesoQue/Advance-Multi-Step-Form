@@ -19,7 +19,7 @@ const Sidebar = ({ currentStepIndex, gotoForm }: NavTypes) => {
             <div className="md:flex md:items-center" key={btn}>
               <button
                 className={`${position} flex h-[40px] w-[40px] items-center justify-center rounded-full border border-white text-white md:mr-5`}
-                onClick={() => gotoForm(i)}
+                // onClick={() => gotoForm(i)}
               >
                 {i + 1}
               </button>

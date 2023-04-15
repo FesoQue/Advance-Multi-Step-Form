@@ -40,14 +40,18 @@ export default function Home() {
               </AnimatePresence>
             ) : (
               <form onSubmit={handleFormData}>
-                <AnimatePresence mode="wait">
+                <AnimatePresence mode="wait" custom={status}>
                   {currentStepIndex === 0 && (
                     <PersonalInfo key={"step1"} status={status} />
                   )}
-                  {currentStepIndex === 1 && <BillingPlan key={"step2"} />}
-                  {currentStepIndex === 2 && <Addons key={"step3"} />}
+                  {currentStepIndex === 1 && (
+                    <BillingPlan key={"step2"} status={status} />
+                  )}
+                  {currentStepIndex === 2 && (
+                    <Addons key={"step3"} status={status} />
+                  )}
                   {currentStepIndex === 3 && (
-                    <Finish gotoForm={gotoForm} key={"step4"} />
+                    <Finish gotoForm={gotoForm} key={"step4"} status={status} />
                   )}
                 </AnimatePresence>
                 <div className="mt-10 flex items-center justify-between">
