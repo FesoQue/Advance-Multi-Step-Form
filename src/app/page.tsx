@@ -66,6 +66,7 @@ export default function Home() {
                         {isFirstStep ? "" : "Go Back"}
                       </button>
                       <button
+                        type="button"
                         className="grid h-[45px] min-w-[110px] place-items-center rounded bg-marine-blue font-semibold text-white"
                         onClick={nextStep}
                       >
