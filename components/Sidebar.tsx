@@ -8,7 +8,7 @@ type NavTypes = {
 const Sidebar = ({ currentStepIndex, gotoForm }: NavTypes) => {
   return (
     <header className="h-[200px] bg-bg-mobile bg-cover bg-center md:h-auto md:rounded-xl md:bg-bg-desktop md:px-8 ">
-      <div className="flex h-full w-full justify-center space-x-6 pt-10 md:w-[220px] md:flex-col md:justify-start md:space-x-0 md:space-y-8">
+      <div className="flex h-full w-full justify-center space-x-6 pt-10  md:w-[220px] md:flex-col md:justify-start md:space-x-0 md:space-y-8">
         {["Your Info", "Select Plan", "Add-on", "summary"].map((btn, i) => {
           let position;
           if (i === currentStepIndex) {
@@ -18,7 +18,7 @@ const Sidebar = ({ currentStepIndex, gotoForm }: NavTypes) => {
           return (
             <div className="md:flex md:items-center" key={btn}>
               <button
-                className={`${position} flex h-[40px] w-[40px] items-center justify-center rounded-full border border-white text-white md:mr-5`}
+                className={`${position} flex h-[40px] w-[40px] items-center justify-center rounded-full border border-white text-white transition-all md:mr-5`}
                 // onClick={() => gotoForm(i)}
               >
                 {i + 1}

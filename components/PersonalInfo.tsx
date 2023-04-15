@@ -23,7 +23,7 @@ const PersonalInfo = ({ status }: { status: string }) => {
         Personal Info
       </h1>
       <p className="mb-6 text-lg text-cool-gray">
-        Please provide your name, email, address, phone number.
+        Please provide your name, email address, phone number.
       </p>
       <div className="">
         <div className="mb-4">
@@ -35,6 +35,7 @@ const PersonalInfo = ({ status }: { status: string }) => {
             name="name"
             id="name"
             placeholder="e.g Stephen King"
+            required
             className="h-[45px] w-full rounded border-2 border-light-gray px-3 outline-none placeholder:font-medium"
           />
         </div>
@@ -50,6 +51,7 @@ const PersonalInfo = ({ status }: { status: string }) => {
             name="email"
             id="email"
             placeholder="e.g stephenking@lorem.com"
+            required
             className="h-[45px] w-full rounded border-2 border-light-gray px-3 outline-none placeholder:font-medium"
           />
         </div>
@@ -64,6 +66,7 @@ const PersonalInfo = ({ status }: { status: string }) => {
             type="text"
             name="tel"
             id="phone"
+            required
             placeholder="e.g +123-4567-879"
             className="h-[45px] w-full rounded border-2 border-light-gray px-3 outline-none placeholder:font-medium"
           />

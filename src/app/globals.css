@@ -19,4 +19,5 @@ body {
   background: rgb(191, 226, 253);
   color: hsl(213, 96%, 18%);
   font-weight: 600;
+  transition: background 800ms ease-in-out;
 }

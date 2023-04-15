@@ -8,6 +8,42 @@ import Finish from "../../components/Finish";
 import Success from "../../components/Success";
 import { useMultistepForm } from "../../hooks/useMultistepForm";
 import { AnimatePresence } from "framer-motion";
+import { z } from "zod";
+import { FormSchema } from "../../types";
+import { useState } from "react";
+
+type FormItems = z.infer<typeof FormSchema>;
+
+const InitialValues: FormItems = {
+  userName: "",
+  userEmail: "",
+  userPhoneNum: "",
+  planSelected: "arcade",
+  yearly: false,
+  addOns: [
+    {
+      id: 1,
+      checked: true,
+      title: "Online Service",
+      subtitle: "Access to multiple games",
+      price: 1,
+    },
+    {
+      id: 2,
+      checked: false,
+      title: "Large storage",
+      subtitle: "Extra 1TB of cloud save",
+      price: 2,
+    },
+    {
+      id: 3,
+      checked: false,
+      title: "Customizable Profile",
+      subtitle: "Custom theme on your profile",
+      price: 2,
+    },
+  ],
+};
 
 export default function Home() {
   const {
@@ -21,8 +57,15 @@ export default function Home() {
     status,
   } = useMultistepForm(4);
 
+  const [formData, setFormData] = useState(InitialValues);
+
+  const updateFormData = (updateField: Partial<FormItems>) => {
+    setFormData({ ...formData, ...updateField });
+  };
+
   const handleFormData = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
+    nextStep();
   };
 
   return (
@@ -60,15 +103,15 @@ export default function Home() {
                   ) : (
                     <>
                       <button
+                        type="button"
                         className="font-semibold text-cool-gray"
                         onClick={previousStep}
                       >
                         {isFirstStep ? "" : "Go Back"}
                       </button>
                       <button
-                        type="button"
+                        type="submit"
                         className="grid h-[45px] min-w-[110px] place-items-center rounded bg-marine-blue font-semibold text-white"
-                        onClick={nextStep}
                       >
                         {isLastStep ? "Confirm" : "Next Step"}
                       </button>

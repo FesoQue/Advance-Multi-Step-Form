@@ -17,14 +17,15 @@ export const metadata = {
     "Tailwind CSS",
     "Server Components",
     "Radix UI",
+    "zod",
   ],
   authors: [
     {
-      name: "Qudus",
+      name: "Adefeso Qudus",
       url: "https://qdus.netlify.app",
     },
   ],
-  creator: "qudus",
+  creator: "Adefeso Qudus",
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "white" },
     { media: "(prefers-color-scheme: dark)", color: "black" },
