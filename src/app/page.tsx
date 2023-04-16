@@ -4,7 +4,7 @@ import Sidebar from "../../components/Sidebar";
 import PersonalInfo from "../../components/PersonalInfo";
 import BillingPlan from "../../components/BillingPlan";
 import Addons from "../../components/Addons";
-import Finish from "../../components/Finish";
+import Review from "../../components/Review";
 import Success from "../../components/Success";
 import { useMultistepForm } from "../../hooks/useMultistepForm";
 import { AnimatePresence } from "framer-motion";
@@ -59,14 +59,6 @@ export default function Home() {
 
   const [formData, setFormData] = useState(InitialValues);
 
-  type SlideStatus = {
-    status: string;
-  };
-
-  const Status: SlideStatus = {
-    status: status,
-  };
-
   const updateFormData = (updateField: Partial<FormItems>) => {
     setFormData({ ...formData, ...updateField });
   };
@@ -112,7 +104,12 @@ export default function Home() {
                     />
                   )}
                   {currentStepIndex === 3 && (
-                    <Finish gotoForm={gotoForm} key={"step4"} status={status} />
+                    <Review
+                      gotoForm={gotoForm}
+                      key={"step4"}
+                      status={status}
+                      {...formData}
+                    />
                   )}
                 </AnimatePresence>
                 <div className="mt-10 flex items-center justify-between">

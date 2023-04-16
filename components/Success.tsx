@@ -44,7 +44,7 @@ const Success = ({ gotoForm }: GotoProp) => {
       </p>
       <button
         className="border-1 flex items-center rounded border border-purplish-blue px-3 py-2 font-medium text-purplish-blue"
-        onClick={() => gotoForm(0)}
+        onClick={() => window.location.reload()}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"

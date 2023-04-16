@@ -8,15 +8,10 @@ import { FormItems } from "@/app/page";
 
 type updateWithAddons = FormItems & {
   updateForm: (updateField: Partial<FormItems>) => void;
+  status: string;
 };
 
-const Addons = ({
-  status,
-  addOns,
-  yearly,
-  updateForm,
-}: { status: string } & updateWithAddons) => {
-  const [checked, setChecked] = useState(false);
+const Addons = ({ status, addOns, yearly, updateForm }: updateWithAddons) => {
   const { variants } = useVariants({ status });
 
   const handleCheckChange = (id: number, checked: boolean) => {

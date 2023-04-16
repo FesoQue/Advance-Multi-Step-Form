@@ -12,6 +12,7 @@ const toggleGroupItemClasses =
 
 type updateWithBilling = FormItems & {
   updateForm: (updateField: Partial<FormItems>) => void;
+  status: string;
 };
 
 type Plan = "arcade" | "advanced" | "pro";
@@ -21,9 +22,7 @@ const BillingPlan = ({
   updateForm,
   planSelected,
   yearly,
-}: {
-  status: string;
-} & updateWithBilling) => {
+}: updateWithBilling) => {
   const { variants } = useVariants({ status });
 
   const [isYearlyPlan, setIsYearlyPlan] = useState(yearly);
@@ -33,8 +32,6 @@ const BillingPlan = ({
     setIsYearlyPlan(!isYearlyPlan);
     updateForm({ yearly: !isYearlyPlan });
   };
-
-  console.log(isYearlyPlan);
 
   const handleValueChange = (plan: Plan) => {
     if (planSelected) {
@@ -83,8 +80,11 @@ const BillingPlan = ({
           />
           <div className="text-left">
             <p className="mb-1 text-lg font-medium text-marine-blue">Arcade</p>
-            <span className="text-cool-gray">
+            <span className="mb-1 block text-cool-gray">
               {yearly ? "$90/yr" : "$9/mo"}{" "}
+            </span>
+            <span className="block text-marine-blue">
+              {yearly && "2 months free"}
             </span>
           </div>
         </ToggleGroup.Item>
@@ -105,8 +105,11 @@ const BillingPlan = ({
             <p className="mb-1 text-lg font-medium text-marine-blue">
               Advanced
             </p>
-            <span className="text-cool-gray">
+            <span className="mb-1 block text-cool-gray">
               {yearly ? "$120/yr" : "$12/mo"}
+            </span>
+            <span className="block text-marine-blue">
+              {yearly && "2 months free"}
             </span>
           </div>
         </ToggleGroup.Item>
@@ -124,8 +127,11 @@ const BillingPlan = ({
           />
           <div className="text-left">
             <p className="mb-1 text-lg font-medium text-marine-blue">Pro</p>
-            <span className="text-cool-gray">
+            <span className="mb-1 block text-cool-gray">
               {yearly ? "$150/yr" : "$12/mo"}
+            </span>
+            <span className="block text-marine-blue">
+              {yearly && "2 months free"}
             </span>
           </div>
         </ToggleGroup.Item>
