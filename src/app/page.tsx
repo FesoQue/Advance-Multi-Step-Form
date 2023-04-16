@@ -104,7 +104,12 @@ export default function Home() {
                     />
                   )}
                   {currentStepIndex === 2 && (
-                    <Addons key={"step3"} status={status} />
+                    <Addons
+                      key={"step3"}
+                      status={status}
+                      {...formData}
+                      updateForm={updateFormData}
+                    />
                   )}
                   {currentStepIndex === 3 && (
                     <Finish gotoForm={gotoForm} key={"step4"} status={status} />

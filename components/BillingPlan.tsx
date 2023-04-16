@@ -26,13 +26,15 @@ const BillingPlan = ({
 } & updateWithBilling) => {
   const { variants } = useVariants({ status });
 
-  const [isYearlyPlan, setIsYearlyPlan] = useState(false);
+  const [isYearlyPlan, setIsYearlyPlan] = useState(yearly);
   const [plan, setPlan] = useState<Plan>(planSelected);
 
   const handleCheckedChange = () => {
-    setIsYearlyPlan((prev) => !prev);
-    updateForm({ yearly: isYearlyPlan });
+    setIsYearlyPlan(!isYearlyPlan);
+    updateForm({ yearly: !isYearlyPlan });
   };
+
+  console.log(isYearlyPlan);
 
   const handleValueChange = (plan: Plan) => {
     if (planSelected) {
@@ -82,7 +84,7 @@ const BillingPlan = ({
           <div className="text-left">
             <p className="mb-1 text-lg font-medium text-marine-blue">Arcade</p>
             <span className="text-cool-gray">
-              {isYearlyPlan ? "$90/yr" : "$9/mo"}{" "}
+              {yearly ? "$90/yr" : "$9/mo"}{" "}
             </span>
           </div>
         </ToggleGroup.Item>
@@ -104,7 +106,7 @@ const BillingPlan = ({
               Advanced
             </p>
             <span className="text-cool-gray">
-              {isYearlyPlan ? "$120/yr" : "$12/mo"}
+              {yearly ? "$120/yr" : "$12/mo"}
             </span>
           </div>
         </ToggleGroup.Item>
@@ -123,7 +125,7 @@ const BillingPlan = ({
           <div className="text-left">
             <p className="mb-1 text-lg font-medium text-marine-blue">Pro</p>
             <span className="text-cool-gray">
-              {isYearlyPlan ? "$150/yr" : "$12/mo"}
+              {yearly ? "$150/yr" : "$12/mo"}
             </span>
           </div>
         </ToggleGroup.Item>
