@@ -5,10 +5,10 @@ import { Switch } from "./ui/switch";
 import { Label } from "./ui/label";
 import { motion } from "framer-motion";
 import useVariants from "../hooks/useVariants";
-import { FormItems } from "@/app/page";
+import { FormItems } from "../types";
 
 const toggleGroupItemClasses =
-  "hover:bg-alabaster data-[state=on]:bg-magnolia data-[state=on]:shadow-[0_0_0_1px] shadow-[0_0_0_1px] shadow-light-gray rounded-lg data-[state=on]:shadow-marine-blue flex p-4 w-full  items-center bg-white leading-4 mb-3 focus:z-10 focus:outline-none md:flex-col md:items-start md:gap-[20px]";
+  "hover:bg-alabaster data-[state=on]:bg-magnolia data-[state=on]:shadow-[0_0_0_1px]  shadow-[0_0_0_1px] shadow-light-gray rounded-lg data-[state=on]:shadow-marine-blue flex p-4 w-full  items-center bg-white leading-4 mb-3 focus:z-10 focus:outline-none md:flex-col md:items-start md:gap-[20px]";
 
 type updateWithBilling = FormItems & {
   updateForm: (updateField: Partial<FormItems>) => void;
@@ -34,7 +34,7 @@ const BillingPlan = ({
   };
 
   const handleValueChange = (plan: Plan) => {
-    if (planSelected) {
+    if (plan) {
       setPlan(plan);
       updateForm({ planSelected: plan });
     }
@@ -96,7 +96,7 @@ const BillingPlan = ({
         >
           <Image
             src={"/assets/images/icon-advanced.svg"}
-            alt="arcade"
+            alt="advanced"
             width={40}
             height={40}
             className="md:mr=0 mr-5"
@@ -120,7 +120,7 @@ const BillingPlan = ({
         >
           <Image
             src={"/assets/images/icon-pro.svg"}
-            alt="arcade"
+            alt="pro"
             width={40}
             height={40}
             className="mr-5 md:mr-0"

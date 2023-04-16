@@ -2,7 +2,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import useVariants from "../hooks/useVariants";
-import { FormItems } from "@/app/page";
+import { FormItems } from "../types";
 
 type reviewBillingProps = FormItems & {
   gotoForm: (index: number) => void;
@@ -53,7 +53,7 @@ const Review = ({
         Reviewing Up
       </h1>
       <p className="mb-6 text-lg text-cool-gray">
-        Double check evrything looks OK before confirming
+        Double check everything looks OK before confirming
       </p>
       <div className="mb-6 rounded-lg bg-slate-100 p-3">
         <div
@@ -66,6 +66,7 @@ const Review = ({
               planSelected.charAt(0).toUpperCase() + planSelected.slice(1)
             } (${yearly ? "Yearly" : "Monthly"})`}</p>
             <button
+              type="button"
               className="text-cool-gray underline"
               onClick={() => gotoForm(1)}
             >

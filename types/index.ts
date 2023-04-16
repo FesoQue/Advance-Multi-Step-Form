@@ -9,13 +9,21 @@ export const SiteConfigSchema = z.object({
   }),
 });
 
-export const FormSchema = z.object({
+export type GotoProp = {
+  status?: string;
+  gotoForm: (index: number) => void;
+};
+
+export const UserFormSchema = z.object({
   userName: z
     .string()
-    .min(3, { message: "name too short" })
-    .max(20, { message: "name too long" }),
-  userEmail: z.string().email({ message: "invalid email address" }),
-  userPhoneNum: z.string(),
+    .min(3, { message: "name is too short" })
+    .max(20, { message: "name is too long" }),
+  userEmail: z.string().email({ message: "Invalid email address" }),
+  userPhone: z.string().min(11, { message: "enter valid phone number" }),
+});
+
+export const BillingSchema = z.object({
   planSelected: z.union([
     z.literal("arcade"),
     z.literal("advanced"),
@@ -33,7 +41,5 @@ export const FormSchema = z.object({
     .array(),
 });
 
-export type GotoProp = {
-  status?: string;
-  gotoForm: (index: number) => void;
-};
+export type FormItems = z.infer<typeof BillingSchema>;
+export type UserDetails = z.infer<typeof UserFormSchema>;

@@ -1,5 +1,3 @@
-import React from "react";
-
 const useVariants = ({ status }: { status: string }) => {
   const variants = {
     hidden: (status: string) => ({
