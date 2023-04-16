@@ -18,7 +18,7 @@ export const FormSchema = z.object({
   userPhoneNum: z.string(),
   planSelected: z.union([
     z.literal("arcade"),
-    z.literal("advance"),
+    z.literal("advanced"),
     z.literal("pro"),
   ]),
   yearly: z.boolean(),

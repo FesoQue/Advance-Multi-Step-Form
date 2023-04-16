@@ -3,19 +3,42 @@ import * as ToggleGroup from "@radix-ui/react-toggle-group";
 import Image from "next/image";
 import { Switch } from "./ui/switch";
 import { Label } from "./ui/label";
-import { formVariants } from "../lib/animation-variant";
 import { motion } from "framer-motion";
 import useVariants from "../hooks/useVariants";
+import { FormItems } from "@/app/page";
 
 const toggleGroupItemClasses =
   "hover:bg-alabaster data-[state=on]:bg-magnolia data-[state=on]:shadow-[0_0_0_1px] shadow-[0_0_0_1px] shadow-light-gray rounded-lg data-[state=on]:shadow-marine-blue flex p-4 w-full  items-center bg-white leading-4 mb-3 focus:z-10 focus:outline-none md:flex-col md:items-start md:gap-[20px]";
 
-const BillingPlan = ({ status }: { status: string }) => {
-  const [isYearlyPlan, setIsYearlyPlan] = useState(false);
+type updateWithBilling = FormItems & {
+  updateForm: (updateField: Partial<FormItems>) => void;
+};
+
+type Plan = "arcade" | "advanced" | "pro";
+
+const BillingPlan = ({
+  status,
+  updateForm,
+  planSelected,
+  yearly,
+}: {
+  status: string;
+} & updateWithBilling) => {
   const { variants } = useVariants({ status });
+
+  const [isYearlyPlan, setIsYearlyPlan] = useState(false);
+  const [plan, setPlan] = useState<Plan>(planSelected);
 
   const handleCheckedChange = () => {
     setIsYearlyPlan((prev) => !prev);
+    updateForm({ yearly: isYearlyPlan });
+  };
+
+  const handleValueChange = (plan: Plan) => {
+    if (planSelected) {
+      setPlan(plan);
+      updateForm({ planSelected: plan });
+    }
   };
 
   useEffect(() => {
@@ -41,7 +64,8 @@ const BillingPlan = ({ status }: { status: string }) => {
         type="single"
         aria-label="Billing Plan"
         orientation="horizontal"
-        value="pro"
+        value={plan}
+        onValueChange={handleValueChange}
       >
         <ToggleGroup.Item
           className={toggleGroupItemClasses}
@@ -57,7 +81,9 @@ const BillingPlan = ({ status }: { status: string }) => {
           />
           <div className="text-left">
             <p className="mb-1 text-lg font-medium text-marine-blue">Arcade</p>
-            <span className="text-cool-gray">$9/mo</span>
+            <span className="text-cool-gray">
+              {isYearlyPlan ? "$90/yr" : "$9/mo"}{" "}
+            </span>
           </div>
         </ToggleGroup.Item>
 
@@ -77,7 +103,9 @@ const BillingPlan = ({ status }: { status: string }) => {
             <p className="mb-1 text-lg font-medium text-marine-blue">
               Advanced
             </p>
-            <span className="text-cool-gray">$12/mo</span>
+            <span className="text-cool-gray">
+              {isYearlyPlan ? "$120/yr" : "$12/mo"}
+            </span>
           </div>
         </ToggleGroup.Item>
         <ToggleGroup.Item
@@ -94,7 +122,9 @@ const BillingPlan = ({ status }: { status: string }) => {
           />
           <div className="text-left">
             <p className="mb-1 text-lg font-medium text-marine-blue">Pro</p>
-            <span className="text-cool-gray">$12/mo</span>
+            <span className="text-cool-gray">
+              {isYearlyPlan ? "$150/yr" : "$12/mo"}
+            </span>
           </div>
         </ToggleGroup.Item>
       </ToggleGroup.Root>

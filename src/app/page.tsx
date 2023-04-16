@@ -12,7 +12,7 @@ import { z } from "zod";
 import { FormSchema } from "../../types";
 import { useState } from "react";
 
-type FormItems = z.infer<typeof FormSchema>;
+export type FormItems = z.infer<typeof FormSchema>;
 
 const InitialValues: FormItems = {
   userName: "",
@@ -59,6 +59,14 @@ export default function Home() {
 
   const [formData, setFormData] = useState(InitialValues);
 
+  type SlideStatus = {
+    status: string;
+  };
+
+  const Status: SlideStatus = {
+    status: status,
+  };
+
   const updateFormData = (updateField: Partial<FormItems>) => {
     setFormData({ ...formData, ...updateField });
   };
@@ -88,7 +96,12 @@ export default function Home() {
                     <PersonalInfo key={"step1"} status={status} />
                   )}
                   {currentStepIndex === 1 && (
-                    <BillingPlan key={"step2"} status={status} />
+                    <BillingPlan
+                      key={"step2"}
+                      status={status}
+                      {...formData}
+                      updateForm={updateFormData}
+                    />
                   )}
                   {currentStepIndex === 2 && (
                     <Addons key={"step3"} status={status} />
