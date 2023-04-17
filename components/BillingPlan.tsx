@@ -8,7 +8,7 @@ import useVariants from "../hooks/useVariants";
 import { FormItems } from "../types";
 
 const toggleGroupItemClasses =
-  "hover:bg-alabaster data-[state=on]:bg-magnolia data-[state=on]:shadow-[0_0_0_1px]  shadow-[0_0_0_1px] shadow-light-gray rounded-lg data-[state=on]:shadow-marine-blue flex p-4 w-full  items-center bg-white leading-4 mb-3 focus:z-10 focus:outline-none md:flex-col md:items-start md:gap-[20px]";
+  "hover:bg-alabaster data-[state=on]:bg-magnolia data-[state=on]:shadow-[0_0_0_1px]  shadow-[0_0_0_1px] shadow-light-gray rounded-lg data-[state=on]:transition-all  data-[state=on]:shadow-marine-blue flex p-4 w-full  items-center bg-white leading-4 mb-3 focus:z-10 focus:outline-none md:flex-col md:items-start md:gap-[20px]";
 
 type updateWithBilling = FormItems & {
   updateForm: (updateField: Partial<FormItems>) => void;
@@ -67,10 +67,6 @@ const BillingPlan = ({
         aria-label="Billing Plan"
         orientation="horizontal"
         value={plan}
-        // onValueChange={(value: Plan) => {
-        //   if (value) setPlan(value);
-        //   updateForm({ planSelected: plan });
-        // }}
         onValueChange={handleValueChange}
       >
         <ToggleGroup.Item className={toggleGroupItemClasses} value="arcade">
@@ -86,7 +82,7 @@ const BillingPlan = ({
             <span className="mb-1 block text-cool-gray">
               {yearly ? "$90/yr" : "$9/mo"}{" "}
             </span>
-            <span className="block text-marine-blue">
+            <span className="block text-sm font-medium text-marine-blue">
               {yearly && "2 months free"}
             </span>
           </div>
@@ -100,14 +96,14 @@ const BillingPlan = ({
             height={40}
             className="md:mr=0 mr-5"
           />
-          <div className="text-left">
+          <div className="relative text-left">
             <p className="mb-1 text-lg font-medium text-marine-blue">
               Advanced
             </p>
             <span className="mb-1 block text-cool-gray">
               {yearly ? "$120/yr" : "$12/mo"}
             </span>
-            <span className="block text-marine-blue">
+            <span className="block text-sm font-medium text-marine-blue">
               {yearly && "2 months free"}
             </span>
           </div>
@@ -125,7 +121,7 @@ const BillingPlan = ({
             <span className="mb-1 block text-cool-gray">
               {yearly ? "$150/yr" : "$12/mo"}
             </span>
-            <span className="block text-marine-blue">
+            <span className="block text-sm font-medium text-marine-blue">
               {yearly && "2 months free"}
             </span>
           </div>
