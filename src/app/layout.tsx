@@ -30,12 +30,9 @@ export const metadata = {
     { media: "(prefers-color-scheme: light)", color: "white" },
     { media: "(prefers-color-scheme: dark)", color: "black" },
   ],
-  // icons: {
-  //   icon: "/favicon.ico",
-  //   shortcut: "/favicon-16x16.png",
-  //   apple: "/apple-touch-icon.png",
-  // },
-  // manifest: `${siteConfig.url}/site.webmanifest`,
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({
