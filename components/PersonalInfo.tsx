@@ -44,7 +44,7 @@ const PersonalInfo = ({
         Please provide your name, email address, phone number.
       </p>
       <div className="">
-        <div className="relative mb-4 md:mb-6">
+        <div className="relative mb-4 md:mb-5">
           <label htmlFor="name" className=" block font-medium text-marine-blue">
             Name
           </label>
@@ -62,7 +62,7 @@ const PersonalInfo = ({
             className=" text-red-600 md:absolute md:-bottom-6 md:left-0"
           ></span>
         </div>
-        <div className="relative mb-4 md:mb-6">
+        <div className="relative mb-4 md:mb-5">
           <label
             htmlFor="email"
             className=" block font-medium text-marine-blue"
