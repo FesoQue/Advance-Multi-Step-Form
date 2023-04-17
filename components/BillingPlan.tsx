@@ -26,7 +26,7 @@ const BillingPlan = ({
   const { variants } = useVariants({ status });
 
   const [isYearlyPlan, setIsYearlyPlan] = useState(yearly);
-  const [plan, setPlan] = useState<Plan>(planSelected);
+  const [plan, setPlan] = useState(planSelected);
 
   const handleCheckedChange = () => {
     setIsYearlyPlan(!isYearlyPlan);
@@ -36,13 +36,16 @@ const BillingPlan = ({
   const handleValueChange = (plan: Plan) => {
     if (plan) {
       setPlan(plan);
-      updateForm({ planSelected: plan });
     }
   };
 
   useEffect(() => {
     window.scroll(0, 0);
   }, []);
+
+  useEffect(() => {
+    updateForm({ planSelected: plan });
+  }, [plan]);
 
   return (
     <motion.div
@@ -64,13 +67,13 @@ const BillingPlan = ({
         aria-label="Billing Plan"
         orientation="horizontal"
         value={plan}
+        // onValueChange={(value: Plan) => {
+        //   if (value) setPlan(value);
+        //   updateForm({ planSelected: plan });
+        // }}
         onValueChange={handleValueChange}
       >
-        <ToggleGroup.Item
-          className={toggleGroupItemClasses}
-          value="arcade"
-          aria-label="arcade plan"
-        >
+        <ToggleGroup.Item className={toggleGroupItemClasses} value="arcade">
           <Image
             src={"/assets/images/icon-arcade.svg"}
             alt="arcade"
@@ -89,11 +92,7 @@ const BillingPlan = ({
           </div>
         </ToggleGroup.Item>
 
-        <ToggleGroup.Item
-          className={toggleGroupItemClasses}
-          value="advanced"
-          aria-label="Advanced Plan"
-        >
+        <ToggleGroup.Item className={toggleGroupItemClasses} value="advanced">
           <Image
             src={"/assets/images/icon-advanced.svg"}
             alt="advanced"
@@ -113,11 +112,7 @@ const BillingPlan = ({
             </span>
           </div>
         </ToggleGroup.Item>
-        <ToggleGroup.Item
-          className={toggleGroupItemClasses}
-          value="pro"
-          aria-label="Pro Plan"
-        >
+        <ToggleGroup.Item className={toggleGroupItemClasses} value="pro">
           <Image
             src={"/assets/images/icon-pro.svg"}
             alt="pro"

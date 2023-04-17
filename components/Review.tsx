@@ -18,14 +18,18 @@ const Review = ({
 }: reviewBillingProps) => {
   const { variants } = useVariants({ status });
 
+  console.log(planSelected);
+
   let plan = 0;
   let totalAddons = 0;
 
   if (planSelected === "arcade") {
     plan = 9;
-  } else if ((planSelected = "advanced")) {
+  }
+  if (planSelected === "advanced") {
     plan = 12;
-  } else {
+  }
+  if (planSelected === "pro") {
     plan = 15;
   }
 
@@ -62,9 +66,9 @@ const Review = ({
           } mb-3 flex items-center justify-between border-b  pb-3`}
         >
           <div>
-            <p className="font-semibold text-marine-blue">{`${
-              planSelected.charAt(0).toUpperCase() + planSelected.slice(1)
-            } (${yearly ? "Yearly" : "Monthly"})`}</p>
+            <p className="font-semibold capitalize text-marine-blue">{`${planSelected} (${
+              yearly ? "Yearly" : "Monthly"
+            })`}</p>
             <button
               type="button"
               className="text-cool-gray underline"

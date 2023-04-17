@@ -4,7 +4,7 @@ import { Label } from "./ui/label";
 import { Checkbox } from "./ui/checkbox";
 import { motion } from "framer-motion";
 import useVariants from "../hooks/useVariants";
-import { FormItems } from "@/app/page";
+import { FormItems } from "../types";
 
 type updateWithAddons = FormItems & {
   updateForm: (updateField: Partial<FormItems>) => void;
