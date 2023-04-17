@@ -188,6 +188,22 @@ export default function Home() {
           </section>
         </div>
       </div>
+      <p className="hidden text-center lg:absolute lg:bottom-4 lg:block">
+        Design from{" "}
+        <a
+          href="https://www.frontendmentor.io/"
+          className="text-blue-800 underline"
+        >
+          FrontendMentor
+        </a>{" "}
+        & Developed by{" "}
+        <a
+          href="https://github.com/FesoQue"
+          className="text-blue-800 underline"
+        >
+          FesoQue
+        </a>
+      </p>
     </main>
   );
 }
